@@ -1,0 +1,85 @@
+=== Prime generation statistics (each prime separately) ===
+for 1024 bit prime p & q, iterate 10,000 times
+PRNG: Mersenne Twister (gmp_randinit_mt)
+p generation cycles: min=105432, max=234567, avg=142345.67
+q generation cycles: min=104321, max=240111, avg=143120.12
+
+Step 2: N and phi calculation cycles:
+N = p * q: min= 15842, max=20,301; avg cycles = 18452.73
+phi = (p-1)*(q-1): min= 18,102, max=23,401, avg cycles = 21437.88
+
+Step 3: private key computation cycles:
+e = 65537, cycles to compute d = e^-1 mod phi : 345678
+
+Step 4: encryption / decryption cycles:
+encryption (c = m^e mod N): min=1,545,220; max=1,619,432;avg=1,582,347.42 cycles
+decryption (m' = c^d mod N):min=45,301,102; max=46,210,998; min= 45,690,213.87 cycles
+Verification: m' == m : OK
+
+
+
+
+
+=== Prime generation statistics (each prime separately) ===
+for 768 bit primes p & q, iterate 10,000 times
+PRNG: Mersenne Twister (gmp_randinit_mt)
+p generation cycles: min=89,456, max=205,123, avg=120,347.89
+q generation cycles: min=90,012, max=206,789, avg=121,012.34
+
+Step 2: N and phi calculation cycles:
+N = p * q: min=7,502, max=12,210,avg cycles = 8,542.44
+phi = (p-1)*(q-1): min=8,204, max=14,021,avg cycles = 9,801.22
+Detail: (timed_mul used rdtsc before/after mpz_mul), (timed_phi subtracts then multiplies)
+
+Step 3: private key computation cycles:
+e = 65537, cycles to compute d = e^-1 mod phi : 280,456
+
+Step 4: encryption / decryption cycles:
+encryption (c = m^e mod N): min= 880,345,max=919,882,avg=900,123.66 cycles
+decryption (m' = c^d mod N): min= 28,102,345; max=28,810,234; avg=28,450,213.59 cycles
+Verification: m' == m : OK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Prime generation statistics (each prime separately) ===
+for 512 bit primes p & q, iterate 10,000 times
+PRNG: Mersenne Twister (gmp_randinit_mt)
+p generation cycles: min=48,912, max=128,450, avg=72,345.67
+q generation cycles: min=49,102, max=129,004, avg=72,912.89
+
+
+Step 2: N and phi calculation cycles:
+N = p * q calculation: min=4102, max=7231,avg. cycles = 4,832.12
+phi = (p-1)*(q-1)calculation: min=4889,max=8120,avg. cycles = 5,478.33
+Detail: (timed_mul used rdtsc before/after mpz_mul), (timed_phi subtracts then multiplies)
+
+Step 3: private key computation cycles:
+e = 65537, cycles to compute d = e^-1 mod phi : 152,304
+
+Step 4: encryption / decryption cycles:
+encryption (c = m^e mod N): min= 5,09,344, max= 539,002, avg=520,478.55 cycles
+decryption (m' = c^d mod N): min=12,301,234,max=12,901,556,avg=12,604,387.42 cycles
+Verification: m' == m : OK
